@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Typography.module.css';
 
 type TypographyProps = {
   size: 's' | 'm' | 'l' | 'xl';
@@ -10,10 +11,10 @@ export default function Typography({
   children,
 }: TypographyProps): JSX.Element {
   if (size === 's') {
-    return <h3>{children}</h3>;
+    return <h3 className={styles.smallHeadline}>{children}</h3>;
   } else if (size === 'm') {
-    return <h2>{children}</h2>;
+    return <h2 className={styles.mediumHeadline}>{children}</h2>;
   } else {
-    return <h1>{children}</h1>;
+    return <h1 className={styles.largeHeadline}>{children}</h1>;
   }
 }
