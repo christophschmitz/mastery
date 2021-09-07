@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('../app/assets/font/Inter-Bold.ttf'),
+    url('../app/assets/font/Inter-Regular.ttf');
+}
+
 *,
 *::before,
 *::after {
@@ -10,8 +16,10 @@
   --text-primary: #c2c7d6;
   --color-primary: #12cdf5;
   --color-secondary: #108eaa;
+  --font-face: 'Inter', sans-serif;
 }
 
 body {
   margin: 0;
+  font-family: var(--font-face);
 }
