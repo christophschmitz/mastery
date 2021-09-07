@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-primary: #2a2835;
+  --bg-secondary: #5d606d;
+  --text-primary: #c2c7d6;
+  --color-primary: #12cdf5;
+  --color-secondary: #108eaa;
+}
+
 body {
   margin: 0;
 }
