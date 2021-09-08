@@ -12,16 +12,6 @@ export default {
   },
 };
 
-// export const All = (): JSX.Element => (
-//   <>
-//     <Actionbutton type="button" style="primary">
-//       Big Heading
-//     </Actionbutton>
-//     <Actionbutton type="button" style="secondary">
-//       Small Heading
-//     </Actionbutton>
-//   </>
-// );
 export const Primary = (): JSX.Element => (
   <ActionButton type="button" style="primary">
     Login
