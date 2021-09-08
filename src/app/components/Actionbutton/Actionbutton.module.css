@@ -13,8 +13,13 @@
     var(--color-secondary) -1.52%,
     var(--color-primary) 100%
   );
-  box-shadow: 0 0.25rem 1.875rem rgba(18, 203, 245, 0.496);
+  box-shadow: 0 0.25rem 1.875rem rgba(18, 203, 245, 0.5);
   border-radius: 0.5rem;
+  transition: 200ms;
+}
+
+.primary:active {
+  box-shadow: 0 0.25rem 1.875rem rgba(77, 107, 114, 0.35);
 }
 
 .secondary {
