@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Inter';
-  src: url('../app/assets/font/Inter-Regular.ttf'),
-    url('../app/assets/font/Inter-Bold.ttf');
+  src: url('../app/assets/font/Inter-Regular.ttf');
 }
 
 *,
