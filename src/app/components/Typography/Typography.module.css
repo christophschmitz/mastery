@@ -1,0 +1,20 @@
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.smallHeadline {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.mediumHeadline {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.largeHeadline {
+  font-size: 2rem;
+  font-weight: 700;
+}
