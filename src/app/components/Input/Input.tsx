@@ -7,7 +7,7 @@ export type InputProps = {
   value: string;
   type: 'email' | 'password';
   placeholder: string;
-  onChange: () => void;
+  onChange: (value: string) => void;
 };
 
 const Input = ({
@@ -28,7 +28,7 @@ const Input = ({
         type={type}
         value={value}
         placeholder={placeholder}
-        onChange={onChange}
+        onChange={(event) => onChange(event.target.value)}
       />
     </div>
   );
