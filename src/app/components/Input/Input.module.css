@@ -1,0 +1,25 @@
+.input {
+  width: 100%;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.875rem;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.label {
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 0.3125rem;
+}
+::placeholder {
+  color: var(--text-primary);
+  font-style: italic;
+  font-size: 1rem;
+}
