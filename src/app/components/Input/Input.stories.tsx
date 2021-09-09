@@ -12,8 +12,8 @@ export default {
     },
   },
 };
-const onChangeFunction = () => {
-  console.log('Hello World');
+const onChangeFunction = (value: string) => {
+  console.log(value);
 };
 
 const Template: Story<InputProps> = (args) => <Input {...args} />;
