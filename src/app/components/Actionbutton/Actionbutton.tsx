@@ -14,20 +14,16 @@ const ActionButton = ({
   style,
   onClick,
 }: ActionButtonProps): JSX.Element => {
-  const styleClass = (): string => {
-    switch (style) {
-      case 'primary':
-        return styles.primary;
-      case 'secondary':
-        return styles.secondary;
-    }
+  const styleMap = {
+    primary: styles.primary,
+    secondary: styles.secondary,
   };
 
   return (
     <button
       onClick={onClick}
       type={type}
-      className={`${styles.button} ${styleClass()}`}
+      className={`${styles.button} ${styleMap[style]}`}
     >
       {children}
     </button>
