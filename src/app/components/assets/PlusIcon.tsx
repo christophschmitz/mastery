@@ -12,21 +12,21 @@ const PlusIcon = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
     >
       <path
         d="M14.6653 28.3305C22.2124 28.3305 28.3305 22.2124 28.3305 14.6653C28.3305 7.11814 22.2124 1 14.6653 1C7.11814 1 1 7.11814 1 14.6653C1 22.2124 7.11814 28.3305 14.6653 28.3305Z"
-        stroke="#C2C7D6"
+        stroke="inherit"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M14.6652 9.19916V20.1314"
-        stroke="#C2C7D6"
+        stroke="inherit"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M9.1991 14.6652H20.1313"
-        stroke="#C2C7D6"
+        stroke="inherit"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
