@@ -9,6 +9,9 @@ function App(): JSX.Element {
         <Route path="/add">
           <main>Add</main>
         </Route>
+        <Route path="/user">
+          <main>Add</main>
+        </Route>
         <Route path="/detail">
           <main>detail</main>
         </Route>
