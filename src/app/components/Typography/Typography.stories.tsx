@@ -4,6 +4,11 @@ import Typography from './Typography';
 export default {
   title: 'Component/Typography',
   component: Typography,
+  parameters: {
+    backgrounds: {
+      default: 'dark',
+    },
+  },
 };
 
 export const All = (): JSX.Element => (
