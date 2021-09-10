@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Typography.module.css';
 
-type TypographyProps = {
+export type TypographyProps = {
   size: 'xs' | 's' | 'm' | 'mi' | 'l';
   children: React.ReactNode;
 };
