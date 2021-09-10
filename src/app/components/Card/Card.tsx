@@ -7,16 +7,16 @@ import ChevronRight from '../assets/ChevronRight';
 export type CardProps = {
   image: string;
   title: string;
-  discription: string;
+  description: string;
 };
 
-const Card = ({ image, title, discription }: CardProps): JSX.Element => {
+const Card = ({ image, title, description }: CardProps): JSX.Element => {
   return (
     <div className={styles.card}>
       <img src={image} alt="placeholder image" className={styles.imgage} />
       <div className={styles.content}>
         <Typography size="m">{title}</Typography>
-        <Typography size="p">{discription}</Typography>
+        <Typography size="p">{description}</Typography>
       </div>
       <div className={styles.chevron}>
         <Link to={`/details${title}`}>
