@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Typography.module.css';
 
 export type TypographyProps = {
-  size: 's' | 'm' | 'l';
+  size: 's' | 'm' | 'l' | 'p';
   children: React.ReactNode;
 };
 
@@ -10,6 +10,7 @@ const styleMap = {
   s: styles.smallHeadline,
   m: styles.mediumHeadline,
   l: styles.largeHeadline,
+  p: styles.para,
 };
 
 export default function Typography({
@@ -23,5 +24,7 @@ export default function Typography({
       return <h2 className={styleMap[size]}>{children}</h2>;
     case 'l':
       return <h1 className={styleMap[size]}>{children}</h1>;
+    case 'p':
+      return <p className={styleMap[size]}>{children}</p>;
   }
 }
