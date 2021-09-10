@@ -12,14 +12,14 @@
   outline: none;
 }
 
+.input::placeholder {
+  color: var(--text-primary);
+  font-style: italic;
+}
+
 .label {
   color: var(--text-primary);
   font-size: 0.75rem;
   display: block;
   margin-bottom: 0.3125rem;
-}
-::placeholder {
-  color: var(--text-primary);
-  font-style: italic;
-  font-size: 1rem;
 }
