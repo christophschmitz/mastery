@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PlusIcon = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
+const ChevronRight = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
   return (
     <svg
       width="9"
@@ -21,4 +21,4 @@ const PlusIcon = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
   );
 };
 
-export default PlusIcon;
+export default ChevronRight;
