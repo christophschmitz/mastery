@@ -10,7 +10,7 @@ const styleMap = {
   s: styles.smallHeadline,
   m: styles.mediumHeadline,
   l: styles.largeHeadline,
-  p: styles.para,
+  p: styles.paragraph,
 };
 
 export default function Typography({
