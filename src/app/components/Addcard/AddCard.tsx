@@ -24,7 +24,7 @@ const Card = ({
         <Typography size="p">{description}</Typography>
       </div>
       <button onClick={onClick} className={styles.addButton}>
-        <PlusIcon className={styles.plusIcon} />
+        <PlusIcon />
       </button>
     </article>
   );
