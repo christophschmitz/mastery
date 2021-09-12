@@ -1,0 +1,21 @@
+.tag {
+  font-weight: 700;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  border-radius: 0.25rem;
+  color: var(--color-primary);
+  padding: 0.6rem 1rem;
+}
+
+.active {
+  border: none;
+  background: linear-gradient(
+    93.35deg,
+    var(--color-secondary) -21.86%,
+    var(--color-primary) 103.26%
+  );
+  box-shadow: 0 0 1rem rgba(18, 205, 245, 0.3);
+  border-radius: 0.25rem;
+  color: var(--text-secondary);
+  padding: 0.6rem 1rem;
+}
