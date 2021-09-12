@@ -1,7 +1,7 @@
 .card {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 3fr 0.2fr;
   color: var(--color-primary);
 }
 .imgage {
@@ -23,4 +23,17 @@
   align-content: center;
   justify-items: end;
   stroke: var(--color-primary);
+}
+
+.addButton {
+  padding-left: 1rem;
+  all: unset;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  stroke: var(--color-primary);
+}
+
+li {
+  list-style-type: none;
 }
