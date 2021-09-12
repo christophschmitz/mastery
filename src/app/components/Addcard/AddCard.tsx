@@ -3,19 +3,19 @@ import styles from './AddCard.module.css';
 import Typography from '../Typography/Typography';
 import PlusIcon from '../assets/PlusIcon';
 
-export type CardProps = {
+export type AddCardProps = {
   imageSrc: string;
   title: string;
   description: string;
   onClick?: () => void;
 };
 
-const Card = ({
+const AddCard = ({
   imageSrc,
   title,
   description,
   onClick,
-}: CardProps): JSX.Element => {
+}: AddCardProps): JSX.Element => {
   return (
     <article className={styles.card}>
       <img src={imageSrc} alt="placeholder image" className={styles.imgage} />
@@ -30,4 +30,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default AddCard;
