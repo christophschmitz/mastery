@@ -1,5 +1,5 @@
 import React from 'react';
-import AddCard from './Addcard';
+import AddCard from './AddCard';
 
 export default {
   title: 'Component/AddCard',
