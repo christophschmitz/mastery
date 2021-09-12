@@ -5,15 +5,9 @@ type TagProps = {
   active?: boolean;
   onClick: () => void;
   children: React.ReactNode;
-  className?: string;
 };
 
-const Tag = ({
-  active,
-  onClick,
-  children,
-  className,
-}: TagProps): JSX.Element => {
+const Tag = ({ active, onClick, children }: TagProps): JSX.Element => {
   return (
     <button
       onClick={onClick}
