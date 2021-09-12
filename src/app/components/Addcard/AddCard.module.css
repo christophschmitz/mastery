@@ -1,0 +1,32 @@
+.card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  color: var(--color-primary);
+}
+.imgage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+  height: 3.75rem;
+  width: 3.75rem;
+}
+
+.content {
+  display: grid;
+  align-content: center;
+  padding-left: 1rem;
+}
+
+.addButton {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  stroke: var(--color-primary);
+}
