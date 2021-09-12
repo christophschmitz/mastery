@@ -5,15 +5,15 @@ import Typography from '../Typography/Typography';
 import ChevronRight from '../assets/ChevronRight';
 
 export type CardProps = {
-  image: string;
+  imageSrc: string;
   title: string;
   description: string;
 };
 
-const Card = ({ image, title, description }: CardProps): JSX.Element => {
+const Card = ({ imageSrc, title, description }: CardProps): JSX.Element => {
   return (
-    <div className={styles.card}>
-      <img src={image} alt="placeholder image" className={styles.imgage} />
+    <article className={styles.card}>
+      <img src={imageSrc} alt="placeholder image" className={styles.imgage} />
       <div className={styles.content}>
         <Typography size="m">{title}</Typography>
         <Typography size="p">{description}</Typography>
@@ -23,7 +23,7 @@ const Card = ({ image, title, description }: CardProps): JSX.Element => {
           <ChevronRight className={styles.chevronLink} />
         </Link>
       </div>
-    </div>
+    </article>
   );
 };
 
