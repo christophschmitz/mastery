@@ -11,6 +11,4 @@
 .addButton {
   all: unset;
   justify-self: end;
-  margin: 0;
-  border: 1px solid red;
 }
