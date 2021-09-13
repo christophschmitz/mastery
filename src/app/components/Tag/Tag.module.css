@@ -8,7 +8,7 @@
 }
 
 .active {
-  border: none;
+  border: 1px solid transparent;
   background: linear-gradient(
     93.35deg,
     var(--color-secondary) -21.86%,
