@@ -1,0 +1,16 @@
+.card {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: row;
+  background: linear-gradient(91.4deg, #108eaa -1.52%, #12cdf5 100%);
+  box-shadow: 0 0.5rem 2.5rem rgba(18, 205, 245, 0.15);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.addButton {
+  all: unset;
+  justify-self: end;
+  margin: 0;
+  border: 1px solid red;
+}
