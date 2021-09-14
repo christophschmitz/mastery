@@ -8,6 +8,7 @@ export type SliderProps = {
   id?: string;
   min: string;
   max: string;
+  onChange: (value: string) => void;
 };
 
 const Rangeslider = ({
@@ -16,6 +17,7 @@ const Rangeslider = ({
   min,
   max,
   size,
+  onChange,
 }: SliderProps): JSX.Element => {
   return (
     <div>
@@ -36,6 +38,7 @@ const Rangeslider = ({
         className={styles.slider}
         value={value}
         id={id}
+        onChange={(event) => onChange(event.target.value)}
       />
     </div>
   );
