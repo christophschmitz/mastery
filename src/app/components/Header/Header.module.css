@@ -1,0 +1,47 @@
+.chevronLeft {
+  stroke: var(--color-primary);
+}
+
+.home {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.35rem 0 1.5rem 0;
+}
+
+.image {
+  width: 3.75rem;
+  border-radius: 50%;
+}
+
+.imageBack {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.7rem 0 1.5rem 0;
+}
+
+.breadCrumbs {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 4.05rem 0 1.5rem 0;
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.35rem 0 1.5rem 0;
+}
+
+.back {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4.05rem 0 1.5rem 0;
+}
