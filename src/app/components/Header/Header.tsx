@@ -9,48 +9,67 @@ export type HeaderProps = {
   title?: string;
   imageSrc?: string;
   onClick?: () => void;
+  className?: string;
 };
 
-const Header = ({
+const headerMap = {
+  home: styles.home,
+  backwithimage: styles.imageBack,
+  detail: styles.details,
+  breadcrumbs: styles.breadCrumbs,
+  justback: styles.back,
+};
+
+export default function Header({
   type,
   title,
   imageSrc,
   onClick,
-}: HeaderProps): JSX.Element => {
-  if (type === 'home') {
-    return (
-      <header className={styles.home}>
-        <Logo />
-        <img src={imageSrc} className={styles.image} alt="PlaceholderImage" />
-      </header>
-    );
-  } else if (type === 'backwithimage') {
-    return (
-      <header className={styles.imageBack}>
-        <ChevronLeft className={styles.chevronLeft} onClick={onClick} />{' '}
-        <img src={imageSrc} className={styles.image} alt="PlaceholderImage" />
-      </header>
-    );
-  } else if (type === 'detail') {
-    return (
-      <header className={styles.details}>
-        <ChevronLeft className={styles.chevronLeft} onClick={onClick} />
-        <Typography size="l">{title}</Typography>
-      </header>
-    );
-  } else if (type === 'breadcrumbs') {
-    return (
-      <header className={styles.breadCrumbs}>
-        <ChevronLeft className={styles.chevronLeft} onClick={onClick} />
-        <Typography size="s">{title}</Typography>
-      </header>
-    );
-  } else {
-    return (
-      <header className={styles.back}>
-        <ChevronLeft className={styles.chevronLeft} onClick={onClick} />
-      </header>
-    );
+}: HeaderProps): JSX.Element {
+  switch (type) {
+    case 'home':
+      return (
+        <header className={headerMap[type]}>
+          <Logo />
+          <img src={imageSrc} className={styles.image} alt="PlaceholderImage" />
+        </header>
+      );
+    case 'backwithimage':
+      return (
+        <header className={headerMap[type]}>
+          <ChevronLeft className={styles.chevronLeft} onClick={onClick} />{' '}
+          <img src={imageSrc} className={styles.image} alt="PlaceholderImage" />
+        </header>
+      );
+    case 'detail':
+      return (
+        <header className={headerMap[type]}>
+          <div className={styles.title}>
+            <ChevronLeft className={styles.chevronLeft} onClick={onClick} />
+            <Typography size="l">{title}</Typography>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img
+              src={imageSrc}
+              className={styles.detailImage}
+              alt="PlaceholderImage"
+            />
+          </div>
+        </header>
+      );
+    case 'breadcrumbs':
+      return (
+        <header className={headerMap[type]}>
+          <ChevronLeft className={styles.chevronLeft} onClick={onClick} />
+          <Typography size="s">{title}</Typography>
+        </header>
+      );
+
+    case 'justback':
+      return (
+        <header className={styles.back}>
+          <ChevronLeft className={styles.chevronLeft} onClick={onClick} />
+        </header>
+      );
   }
-};
-export default Header;
+}
