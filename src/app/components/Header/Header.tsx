@@ -15,7 +15,7 @@ export type HeaderProps = {
 const headerMap = {
   home: styles.home,
   backwithimage: styles.imageBack,
-  detail: styles.details,
+  detail: styles.detailsHeader,
   breadcrumbs: styles.breadCrumbs,
   justback: styles.back,
 };
