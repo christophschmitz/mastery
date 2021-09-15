@@ -1,0 +1,69 @@
+.chevronLeft {
+  stroke: var(--color-primary);
+}
+
+.home {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.35rem 0 1.5rem 0.5rem;
+}
+
+.image {
+  width: 3.75rem;
+  border-radius: 50%;
+}
+
+.imageBack {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.7rem 0 1.5rem 0.5rem;
+}
+
+.breadCrumbs {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 4.05rem 0.5rem 1.5rem 0.5rem;
+}
+
+.detailsHeader {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  background: linear-gradient(180deg, #000 30.17%, rgba(0, 0, 0, 0) 78.59%);
+  height: 16rem;
+}
+
+.title {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: center;
+  padding: 3.35rem 0.5rem 1.5rem 0.5rem;
+}
+
+.imageWrapper {
+  grid-area: 1 / 1 / 2 / 2;
+  z-index: -1;
+}
+
+.detailImage {
+  width: 100%;
+  background-size: cover;
+  object-fit: cover;
+  padding: 3.35rem 0.5rem 1.5rem 0.5rem;
+  height: 16rem;
+}
+
+.back {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4.05rem 0.5rem 1.5rem 0.5rem;
+}
