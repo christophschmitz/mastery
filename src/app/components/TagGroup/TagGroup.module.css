@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  gap: 0.5rem;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.active {
+  box-shadow: 0 0 1rem rgba(18, 205, 245, 0.3);
+}
