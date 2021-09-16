@@ -2,7 +2,7 @@ import React from 'react';
 import Tag from '../Tag/Tag';
 import styles from './TagGroup.module.css';
 
-type TagProps = {
+type Tag = {
   active?: boolean;
   onClick: () => void;
   children: React.ReactNode;
@@ -10,15 +10,15 @@ type TagProps = {
 };
 
 export type TagGroupProps = {
-  tagList: TagProps[];
+  tagList: Tag[];
   className?: string;
 };
 
 const TagGroup = ({ tagList, className }: TagGroupProps): JSX.Element => {
   return (
     <section className={`${styles.container} ${className}`}>
-      {tagList.map((tag, index) => (
-        <Tag key={index} active={tag.active} onClick={tag.onClick}>
+      {tagList.map((tag, children) => (
+        <Tag key={children} active={tag.active} onClick={tag.onClick}>
           {tag.children}
         </Tag>
       ))}
