@@ -12,36 +12,36 @@ export default {
     },
   },
 };
-const onClickFuntion = () => console.log();
+const onClickFunction = () => console.log();
 const tags = [
   {
     active: true,
-    onClick: onClickFuntion,
+    onClick: onClickFunction,
     children: 'Crafting',
   },
   {
     active: false,
-    onClick: onClickFuntion,
+    onClick: onClickFunction,
     children: 'Sport',
   },
   {
     active: false,
-    onClick: onClickFuntion,
+    onClick: onClickFunction,
     children: 'Mental',
   },
   {
     active: false,
-    onClick: onClickFuntion,
+    onClick: onClickFunction,
     children: 'Art',
   },
   {
     active: false,
-    onClick: onClickFuntion,
+    onClick: onClickFunction,
     children: 'Design',
   },
   {
     active: false,
-    onClick: onClickFuntion,
+    onClick: onClickFunction,
     children: 'Coding',
   },
 ];
