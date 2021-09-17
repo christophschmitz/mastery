@@ -3,6 +3,7 @@
   grid-template-columns: 80% 80% 80%;
   gap: 0.5rem;
   overflow-y: scroll;
+  padding: 0 2rem 2rem 0;
 }
 
 ::-webkit-scrollbar {
