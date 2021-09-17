@@ -13,23 +13,23 @@ export default {
   },
 };
 
-const addOnClickFunction = () => console.log('added');
+const onAddClick = () => console.log('added');
 
 const cards = [
   {
     title: 'Crafting',
     description: 'Exampledescription',
-    onClick: addOnClickFunction,
+    onClick: onAddClick,
   },
   {
     title: 'Knitting',
     description: 'Exampledescription',
-    onClick: addOnClickFunction,
+    onClick: onAddClick,
   },
   {
     title: 'Art',
     description: 'Exampledescription',
-    onClick: addOnClickFunction,
+    onClick: onAddClick,
   },
 ];
 
