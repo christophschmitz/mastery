@@ -1,0 +1,26 @@
+.progressContainer {
+  width: 100%;
+  display: flex;
+}
+
+.container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-secondary);
+  width: 3.75rem;
+  height: 3.75rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.icon {
+  stroke: var(--color-primary);
+}
