@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises';
+import { readFile, writeFile } from 'fs/promises';
 import type { Skills, Skill } from '../types';
 //All skills
 export async function readSkills(): Promise<Skill[]> {
@@ -16,4 +16,13 @@ export async function getSkill(title: string): Promise<Skill> {
     throw new Error(`No skill found for skill: ${title}`);
   }
   return skill;
+}
+//Add skill
+export async function addSkill(skill: Skill): Promise<void> {
+  const skills = await readSkills();
+  const newSkills = [...skills, skill];
+  const newDB: Skills = {
+    skills: newSkills,
+  };
+  await writeFile('src/db.json', JSON.stringify(newDB));
 }
