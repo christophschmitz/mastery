@@ -14,3 +14,6 @@ Content-Type: application/json
 "imageSrc": "https://unsplash.com/a/img/empty-states/photos.png",
 "category": "crafting"
 }
+
+### Delete a single skill
+DELETE http://localhost:3001/api/skills/Testskill/
