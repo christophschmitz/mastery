@@ -26,3 +26,12 @@ export async function addSkill(skill: Skill): Promise<void> {
   };
   await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
 }
+//Delete skill
+export async function deleteSkill(title: string): Promise<void> {
+  const skills = await readSkills();
+  const filteredSkills = skills.filter((skill) => skill.title !== title);
+  const newDB: Skills = {
+    skills: filteredSkills,
+  };
+  await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
+}
