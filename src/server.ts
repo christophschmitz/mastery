@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 import type { Skill } from './types';
-import { getSkill, readSkills, addSkill } from './utils/skills';
+import { getSkill, readSkills, addSkill, deleteSkill } from './utils/skills';
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -34,6 +34,12 @@ app.post('/api/skills', async (request, response) => {
   const skill: Skill = request.body;
   await addSkill(skill);
   return response.status(200).send(skill);
+});
+
+app.delete('/api/skills/:title', async (request, response) => {
+  const { title } = request.params;
+  await deleteSkill(title);
+  response.status(200).send();
 });
 
 app.use('/storybook', express.static('dist/storybook'));
