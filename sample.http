@@ -1,0 +1,16 @@
+### Get all skills
+GET http://localhost:3001/api/skills
+
+### Get a single skill
+GET http://localhost:3001/api/skills/Pottery
+
+### Add a single skill
+POST http://localhost:3001/api/skills/
+Content-Type: application/json
+
+{
+"title": "Testskill",
+"description": "750hrs left",
+"imageSrc": "https://unsplash.com/a/img/empty-states/photos.png",
+"category": "crafting"
+}
