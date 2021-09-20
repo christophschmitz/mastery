@@ -24,5 +24,5 @@ export async function addSkill(skill: Skill): Promise<void> {
   const newDB: Skills = {
     skills: newSkills,
   };
-  await writeFile('src/db.json', JSON.stringify(newDB));
+  await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
 }
