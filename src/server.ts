@@ -9,6 +9,11 @@ import {
   deleteSkill,
   updateSkill,
 } from './utils/skills';
+import { connectDatabase } from './utils/database';
+
+if (!process.env.MONGODB_URL) {
+  throw new Error('No MONGODB_URL dotenv variable');
+}
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -64,6 +69,8 @@ app.use('/storybook', express.static('dist/storybook'));
 
 app.use(express.static('dist/app'));
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}!`);
+connectDatabase(process.env.MONGODB_URL).then(() => {
+  app.listen(port, () => {
+    console.log(`Server is listening on port ${port}! 🚀`);
+  });
 });
