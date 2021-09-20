@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'fs/promises';
 import type { Skills, Skill } from '../types';
+import { getSkillsCollection } from './database';
 //All skills
 export async function readSkills(): Promise<Skill[]> {
   const response = await readFile('src/db.json', 'utf-8');
@@ -9,8 +10,8 @@ export async function readSkills(): Promise<Skill[]> {
 }
 //Single skill
 export async function getSkill(title: string): Promise<Skill> {
-  const skills = await readSkills();
-  const skill = skills.find((skill) => skill.title === title);
+  const skillCollection = getSkillsCollection();
+  const skill = await skillCollection.findOne({ title });
 
   if (!skill) {
     throw new Error(`No skill found for skill: ${title}`);
