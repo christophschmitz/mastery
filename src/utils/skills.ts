@@ -1,4 +1,5 @@
 import { readFile, writeFile } from 'fs/promises';
+import type { ObjectId } from 'mongodb';
 import type { Skills, Skill } from '../types';
 import { getSkillsCollection } from './database';
 //All skills
@@ -19,13 +20,10 @@ export async function getSkill(title: string): Promise<Skill> {
   return skill;
 }
 //Add skill
-export async function addSkill(skill: Skill): Promise<void> {
-  const skills = await readSkills();
-  const newSkills = [...skills, skill];
-  const newDB: Skills = {
-    skills: newSkills,
-  };
-  await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
+export async function addSkill(skill: Skill): Promise<ObjectId> {
+  const skillCollection = getSkillsCollection();
+  const result = await skillCollection.insertOne(skill);
+  return result.insertedId;
 }
 //Delete skill
 export async function deleteSkill(title: string): Promise<void> {

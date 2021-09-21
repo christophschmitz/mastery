@@ -43,8 +43,8 @@ app.get('/api/skills/:title', async (request, response) => {
 
 app.post('/api/skills', async (request, response) => {
   const skill: Skill = request.body;
-  await addSkill(skill);
-  return response.status(200).send(skill);
+  const skillId = await addSkill(skill);
+  return response.status(200).send(skillId);
 });
 
 app.delete('/api/skills/:title', async (request, response) => {
