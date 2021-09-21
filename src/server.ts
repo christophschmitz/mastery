@@ -53,7 +53,7 @@ app.delete('/api/skills/:title', async (request, response) => {
   response.status(200).send();
 });
 
-app.put('/api/skills/:title', async (request, response) => {
+app.patch('/api/skills/:title', async (request, response) => {
   const { title } = request.params;
   const skill: Skill = request.body;
   try {

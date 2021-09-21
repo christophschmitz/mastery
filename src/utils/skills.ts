@@ -32,10 +32,6 @@ export async function deleteSkill(title: string): Promise<void> {
 }
 //Update Skill
 export async function updateSkill(title: string, skill: Skill): Promise<void> {
-  const skills = await readSkills();
-  const filteredSkills = skills.filter((skill) => skill.title !== title);
-  const newDB: Skills = {
-    skills: [...filteredSkills, skill],
-  };
-  await writeFile('src/db.json', JSON.stringify(newDB, null, 2));
+  const skillCollection = getSkillsCollection();
+  await skillCollection.updateOne({ title }, { $set: skill });
 }
