@@ -1,12 +1,10 @@
-import { readFile, writeFile } from 'fs/promises';
 import type { ObjectId } from 'mongodb';
-import type { Skills, Skill } from '../types';
+import type { Skill } from '../types';
 import { getSkillsCollection } from './database';
 //All skills
 export async function readSkills(): Promise<Skill[]> {
-  const response = await readFile('src/db.json', 'utf-8');
-  const db: Skills = JSON.parse(response);
-  const skills = db.skills;
+  const skillCollection = getSkillsCollection();
+  const skills = await skillCollection.find().toArray();
   return skills;
 }
 //Single skill
