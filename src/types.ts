@@ -7,5 +7,7 @@ export type Skill = {
   title: string;
   category: string;
   description: string;
+  progress: number;
   imageSrc: string;
+  isDone: boolean;
 };
