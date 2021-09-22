@@ -3,8 +3,8 @@ import Tag from '../Tag/Tag';
 import styles from './TagGroup.module.css';
 
 type Tag = {
-  active?: boolean;
-  onClick: () => void;
+  active: boolean;
+  onClick?: () => void;
   children: React.ReactNode;
   className?: string;
 };
