@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './Tag.module.css';
 
 type TagProps = {
-  active?: boolean;
-  onClick: () => void;
+  active: boolean;
+  onClick?: () => void;
   children: React.ReactNode;
+  className?: string;
 };
 
 const Tag = ({ active, onClick, children }: TagProps): JSX.Element => {
