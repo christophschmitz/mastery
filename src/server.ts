@@ -3,7 +3,7 @@ dotenv.config();
 import express from 'express';
 import type { Skill } from './types';
 import {
-  getSkill,
+  readSkill,
   readSkills,
   addSkill,
   deleteSkill,
@@ -33,7 +33,7 @@ app.get('/api/skills', async (_request, response) => {
 app.get('/api/skills/:title', async (request, response) => {
   const { title } = request.params;
   try {
-    const skill = await getSkill(title);
+    const skill = await readSkill(title);
     response.status(200).json(skill);
   } catch (error) {
     console.error(error);
@@ -50,7 +50,7 @@ app.post('/api/skills', async (request, response) => {
 app.delete('/api/skills/:title', async (request, response) => {
   const { title } = request.params;
   await deleteSkill(title);
-  response.status(200).send();
+  response.status(200).send('Skill was deleted');
 });
 
 app.patch('/api/skills/:title', async (request, response) => {
