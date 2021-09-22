@@ -8,7 +8,7 @@ export async function readSkills(): Promise<Skill[]> {
   return skills;
 }
 //Single skill
-export async function getSkill(title: string): Promise<Skill> {
+export async function readSkill(title: string): Promise<Skill> {
   const skillCollection = getSkillsCollection();
   const skill = await skillCollection.findOne({ title });
 
