@@ -1,0 +1,32 @@
+### Get all skills
+GET http://localhost:3001/api/skills
+
+### Get a single skill
+GET http://localhost:3001/api/skills/Pottery
+
+### Add a single skill
+POST http://localhost:3001/api/skills/
+Content-Type: application/json
+
+{
+"title": "Networking",
+"description": "Take action and expand",
+"imageSrc": "https://images.unsplash.com/photo-1623121181613-eeced17aea39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80",
+"category": "it",
+"progress": 500,
+"isDone": false
+}
+
+### Delete a single skill
+DELETE http://localhost:3001/api/skills/Testskill
+
+### Modify existing skill
+PATCH  http://localhost:3001/api/skills/Testskill
+Content-Type: application/json
+
+{
+"title": "ZweiterTestskill",
+"description": "750hrs left",
+"imageSrc": "https://unsplash.com/a/img/empty-states/photos.png",
+"category": "crafting"
+}
