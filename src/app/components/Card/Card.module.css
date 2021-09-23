@@ -26,7 +26,7 @@
 }
 
 .addButton {
-  padding-left: 1rem;
+  padding-left: 2rem;
   all: unset;
   display: flex;
   justify-content: flex-end;
