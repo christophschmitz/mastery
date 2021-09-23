@@ -11,6 +11,8 @@ export type CardProps = {
   title: string;
   description: string;
   onClick?: () => void;
+  id: string;
+  progress: number;
 };
 
 const Card = ({
