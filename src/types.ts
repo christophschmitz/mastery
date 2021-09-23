@@ -3,7 +3,7 @@ export type Skills = {
 };
 
 export type Skill = {
-  id?: string;
+  id?: string | undefined;
   title: string;
   category: string;
   description: string;

@@ -11,7 +11,7 @@ export type CardProps = {
   title: string;
   description: string;
   onClick?: () => void;
-  id: string;
+  id: string | undefined;
   progress: number;
 };
 

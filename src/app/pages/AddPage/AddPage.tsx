@@ -32,9 +32,9 @@ export default function AddPage(): JSX.Element {
   });
 
   const allCategorys = skills?.map((skill) => {
-    const { title, imageSrc, description, category, _id, progress, isDone } =
+    const { title, imageSrc, description, category, id, progress, isDone } =
       skill;
-    return { title, imageSrc, description, category, _id, progress, isDone };
+    return { title, imageSrc, description, category, id, progress, isDone };
   });
   const filteredSkills = allCategorys?.filter(
     (skills) => skills.category === selectedCategory
@@ -63,7 +63,7 @@ export default function AddPage(): JSX.Element {
             return (
               <Card
                 {...skills}
-                id={skills._id}
+                id={skills.id}
                 progress={skills.progress}
                 type="add"
                 imageSrc={skills.imageSrc}
