@@ -18,7 +18,7 @@ export default function AddPage(): JSX.Element {
   const history = useHistory();
   const { skills } = useSkills();
 
-  const { addOnClick } = useLocalStorageSkills();
+  const { addSkill } = useLocalStorageSkills();
 
   const categoryList = Object.values(CATEGORIES);
   const tagList = categoryList.map((category) => {
@@ -40,8 +40,8 @@ export default function AddPage(): JSX.Element {
     (skills) => skills.category === selectedCategory
   );
 
-  function handleAddOnClick(skills: Skill) {
-    addOnClick(skills);
+  function addNewSkill(skills: Skill) {
+    addSkill(skills);
   }
 
   return (
@@ -59,17 +59,17 @@ export default function AddPage(): JSX.Element {
       </div>
       <main className={styles.cardWrapper}>
         {filteredSkills &&
-          filteredSkills.map((skills) => {
+          filteredSkills.map((skill) => {
             return (
               <Card
                 {...skills}
-                id={skills.id}
-                progress={skills.progress}
+                id={skill.id}
+                progress={skill.progress}
                 type="add"
-                imageSrc={skills.imageSrc}
-                title={skills.title}
-                description={skills.description}
-                onClick={() => handleAddOnClick(skills)}
+                imageSrc={skill.imageSrc}
+                title={skill.title}
+                description={skill.description}
+                onClick={() => addNewSkill(skill)}
               />
             );
           })}
