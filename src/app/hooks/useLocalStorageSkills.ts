@@ -1,7 +1,7 @@
 import useLocalStorage from './useLocalStorage';
 import type { Skill } from '../../types';
 
-export default function useSkills(): {
+export default function useLocalStorageSkills(): {
   skills: Skill[];
   addSkill: (skills: Skill) => void;
   removeSkill: (newSkill: Skill) => void;
