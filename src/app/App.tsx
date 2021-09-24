@@ -10,9 +10,6 @@ function App(): JSX.Element {
         <Route path="/add">
           <AddPage />
         </Route>
-        <Route path="/user"></Route>
-        <Route path="/detail"></Route>
-        <Route path="/"></Route>
       </Switch>
     </BrowserRouter>
   );
