@@ -3,12 +3,12 @@ import type { Skill } from '../../types';
 
 export default function useSkills(): {
   skills: Skill[];
-  addOnClick: (skills: Skill) => void;
+  addSkill: (skills: Skill) => void;
   removeSkill: (newSkill: Skill) => void;
 } {
   const [skills, setSkills] = useLocalStorage<Skill[]>('skills', []);
 
-  function addOnClick(skill: Skill) {
+  function addSkill(skill: Skill) {
     setSkills([...skills, skill]);
   }
 
@@ -16,5 +16,5 @@ export default function useSkills(): {
     setSkills(skills.filter((skill) => skill !== newSkill));
   }
 
-  return { skills, addOnClick, removeSkill };
+  return { skills, addSkill, removeSkill };
 }
