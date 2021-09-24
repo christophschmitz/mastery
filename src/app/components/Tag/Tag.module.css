@@ -4,7 +4,8 @@
   background: transparent;
   border-radius: 0.25rem;
   color: var(--color-primary);
-  padding: 0.6rem 1rem;
+  padding: 0.8rem 2rem;
+  text-transform: capitalize;
 }
 
 .active {
@@ -17,5 +18,5 @@
   box-shadow: 0 0 1rem rgba(18, 205, 245, 0.3);
   border-radius: 0.25rem;
   color: var(--text-secondary);
-  padding: 0.6rem 1rem;
+  padding: 0.8rem 2rem;
 }

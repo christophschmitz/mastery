@@ -18,5 +18,7 @@ export const active = (): JSX.Element => (
 );
 
 export const inActive = (): JSX.Element => (
-  <Tag onClick={() => console.log('inActive')}>Crafting</Tag>
+  <Tag active={true} onClick={() => console.log('inActive')}>
+    Crafting
+  </Tag>
 );

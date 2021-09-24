@@ -69,6 +69,10 @@ app.use('/storybook', express.static('dist/storybook'));
 
 app.use(express.static('dist/app'));
 
+app.get('*', (_request, response) => {
+  response.sendFile('index.html', { root: 'dist/app' });
+});
+
 connectDatabase(process.env.MONGODB_URL).then(() => {
   app.listen(port, () => {
     console.log(`Server is listening on port ${port}! 🚀`);
