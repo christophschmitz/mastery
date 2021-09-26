@@ -20,10 +20,16 @@ export const minuteSlider = (): JSX.Element => (
     value="45"
     min="1"
     max="60"
-    onChange={onChangeFunction}
+    onChange={(event) => onChangeFunction(event.target.value)}
   />
 );
 
 export const hourSlider = (): JSX.Element => (
-  <Slider size="hours" value="2" min="1" max="24" onChange={onChangeFunction} />
+  <Slider
+    size="hours"
+    value="2"
+    min="1"
+    max="24"
+    onChange={(event) => onChangeFunction(event.target.value)}
+  />
 );
