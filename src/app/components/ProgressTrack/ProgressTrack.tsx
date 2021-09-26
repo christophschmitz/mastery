@@ -5,7 +5,7 @@ import Typography from '../Typography/Typography';
 import BadgeIcon from '../assets/BadgeIcon';
 
 export type ProgressProps = {
-  value: number;
+  value: string | number;
   rank: number;
 };
 
@@ -16,7 +16,7 @@ const ProgressTrack = ({ value, rank }: ProgressProps): JSX.Element => {
         <div className={styles.wrapper}>
           <ClockIcon className={styles.icon} />
         </div>
-        <Typography size="m">{`${value} hrs`}</Typography>
+        <Typography size="m">{`${value} hrs left`}</Typography>
       </div>
       <div className={styles.container}>
         <div className={styles.wrapper}>
