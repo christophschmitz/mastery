@@ -36,19 +36,22 @@ export default function DetailPage(): JSX.Element {
 
   const ranking =
     value === 0
-      ? 0
+      ? '0'
       : value < 99
-      ? 1
+      ? '1'
       : value > 100 && value < 199
-      ? 2
+      ? '2'
       : value > 200 && value < 299
-      ? 3
+      ? '3'
       : value > 300 && value < 399
-      ? 4
-      : 5;
+      ? '4'
+      : '5';
 
   const ranktrack = JSON.stringify(ranking);
-  localStorage.setItem('ranking', 'value');
+  localStorage.setItem('ranking', ranking);
+
+  const ranktrackparsed = JSON.parse(ranktrack);
+  localStorage.getItem('ranking');
 
   return (
     <div className={styles.container}>
@@ -60,7 +63,7 @@ export default function DetailPage(): JSX.Element {
       <main className={styles.main}>
         <ProgressTrack
           value={(singleSkill.progress - value).toFixed(1)}
-          rank={ranktrack}
+          rank={ranktrackparsed}
         />
         <form className={styles.form} onSubmit={handleSubmit}>
           <Rangeslider
