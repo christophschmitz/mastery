@@ -6,7 +6,7 @@ import BadgeIcon from '../assets/BadgeIcon';
 
 export type ProgressProps = {
   value: string | number;
-  rank: number;
+  rank: string | number;
 };
 
 const ProgressTrack = ({ value, rank }: ProgressProps): JSX.Element => {
