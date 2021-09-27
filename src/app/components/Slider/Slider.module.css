@@ -3,7 +3,7 @@
   cursor: pointer;
   height: 2em;
   -webkit-appearance: none;
-  width: 100%;
+  width: 99%;
 }
 
 .slider:focus {
