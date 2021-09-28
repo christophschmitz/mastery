@@ -22,5 +22,5 @@
 }
 
 .icon {
-  stroke: var(--color-primary);
+  stroke: var(--text-primary);
 }
