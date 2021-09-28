@@ -9,10 +9,10 @@ export type CardProps = {
   type: 'default' | 'add';
   imageSrc: string;
   title: string;
-  description: string;
+  description?: string;
   onClick?: () => void;
   id: string | undefined;
-  progress: number;
+  progress: string | number;
 };
 
 const Card = ({
@@ -20,16 +20,25 @@ const Card = ({
   imageSrc,
   title,
   description,
+  progress,
   onClick,
 }: CardProps): JSX.Element => {
   return (
     <li>
       <article className={styles.card}>
         <img src={imageSrc} alt="placeholder image" className={styles.imgage} />
-        <div className={styles.content}>
-          <Typography size="m">{title}</Typography>
-          <Typography size="p">{description}</Typography>
-        </div>
+        {type === 'default' ? (
+          <div className={styles.content}>
+            <Typography size="m">{title}</Typography>
+            <Typography size="p">{`${progress} hrs left`}</Typography>
+          </div>
+        ) : (
+          <div className={styles.content}>
+            <Typography size="m">{title}</Typography>
+            <Typography size="p">{description}</Typography>
+          </div>
+        )}
+
         {type === 'default' ? (
           <div className={styles.chevron}>
             <Link to={`/details${title}`}>
