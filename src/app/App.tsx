@@ -1,6 +1,6 @@
 import React from 'react';
 import AddPage from './pages/AddPage/AddPage';
-
+import Home from './pages/Home/Home';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App(): JSX.Element {
@@ -9,6 +9,9 @@ function App(): JSX.Element {
       <Switch>
         <Route path="/add">
           <AddPage />
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
       </Switch>
     </BrowserRouter>
