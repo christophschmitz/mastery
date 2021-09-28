@@ -1,0 +1,50 @@
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-auto-flow: row;
+}
+.mainWrapper {
+  box-shadow: 0 -0.375rem 1.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.75rem 0.75rem 0 0;
+  display: grid;
+  gap: 1rem;
+  padding: 3.75rem 0 1rem 0;
+  overflow-x: scroll;
+}
+
+.greeting {
+  padding-left: 1rem;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.heading a {
+  all: unset;
+  color: var(--color-primary);
+}
+
+.cardWrapper {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem;
+  overflow-x: scroll;
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.cardHeader {
+  padding: 0 0 0 1rem;
+}
+
+.CardGroup {
+  overflow-y: scroll;
+  padding: 1rem 0 1rem 1rem;
+  z-index: 1;
+}
