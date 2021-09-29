@@ -7,6 +7,7 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import ActionButton from '../../components/Actionbutton/Actionbutton';
 import Navigation from '../../components/Navigation/Navigation';
 import useSkill from '../../hooks/useSkill';
+import { useHistory } from 'react-router';
 
 export default function DetailPage(): JSX.Element {
   const singleSkill = {
@@ -24,6 +25,7 @@ export default function DetailPage(): JSX.Element {
   const [hours, setHours] = useState('0');
   const [minutes, setMinutes] = useState('0');
   const [value, setValue] = useState(0);
+  const history = useHistory();
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -59,6 +61,9 @@ export default function DetailPage(): JSX.Element {
         title={singleSkill.title}
         type="detail"
         imageSrc={singleSkill.imageSrc}
+        onClick={() => {
+          history.push('/');
+        }}
       />
       <main className={styles.main}>
         <ProgressTrack
