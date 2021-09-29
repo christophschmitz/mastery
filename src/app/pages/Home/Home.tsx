@@ -6,11 +6,13 @@ import Typography from '../../components/Typography/Typography';
 import Navigation from '../../components/Navigation/Navigation';
 import ExplorationCardGroup from '../../components/ExplorationCardGroup/ExplorationCardGroup';
 import useLocalStorageSkills from '../../hooks/useLocalStorageSkills';
-import useSkills from '../../hooks/useSkills';
-import type { Skill } from '../../../types';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 export default function Home(): JSX.Element {
+  const history = useHistory();
+  const params = useParams<{ title: string }>();
+
   const onAddClick = () => console.log('added');
 
   const explorationList = [
@@ -43,8 +45,8 @@ export default function Home(): JSX.Element {
       </div>
       <main className={styles.mainWrapper}>
         <div className={styles.greeting}>
-          <Typography size={'p'}>{'Welcome back'}</Typography>
-          <Typography size={'l'}>{'John'}</Typography>
+          <Typography size={'pp'}>{'Welcome back'}</Typography>
+          <Typography size={'xl'}>{'John'}</Typography>
         </div>
         <div className={styles.heading}>
           <Typography size={'m'}>{'My top skills'}</Typography>
@@ -54,12 +56,16 @@ export default function Home(): JSX.Element {
           {skills.map((skill) => (
             <Card
               {...skills}
+              key={skill.title}
               id={skill.id}
               progress={skill.progress}
               type="default"
               imageSrc={skill.imageSrc}
               title={skill.title}
               description={skill.description}
+              onClick={() => {
+                history.push(`/detail/${params.title}`);
+              }}
             />
           ))}
         </div>
