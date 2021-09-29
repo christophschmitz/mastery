@@ -12,11 +12,11 @@ function App(): JSX.Element {
         <Route path="/add">
           <AddPage />
         </Route>
-        <Route path="/">
-          <Home />
-        </Route>
         <Route path="/detail">
           <DetailPage />
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
       </Switch>
     </BrowserRouter>
