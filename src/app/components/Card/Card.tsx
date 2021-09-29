@@ -41,7 +41,7 @@ const Card = ({
 
         {type === 'default' ? (
           <div className={styles.chevron}>
-            <Link to={`/details${title}`}>
+            <Link to={`/detail/${title}`}>
               <ChevronRight className={styles.chevronLink} />
             </Link>
           </div>
