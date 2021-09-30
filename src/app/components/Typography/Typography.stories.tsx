@@ -19,7 +19,5 @@ export const All = (): JSX.Element => (
     <Typography size="s">Really Small Heading</Typography>
     <Typography size="p">This a paragraph</Typography>
     <Typography size="ps">This a paragraph</Typography>
-    <Typography size="xl">This a Name</Typography>
-    <Typography size="pp">This a paragraph</Typography>
   </>
 );
