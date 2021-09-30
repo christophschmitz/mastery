@@ -34,3 +34,14 @@
   font-weight: 400;
   color: var(--text-secondary);
 }
+
+.xLargeHeadline {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.paragraphPrimary {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-primary);
+}
