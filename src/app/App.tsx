@@ -18,6 +18,7 @@ function App(): JSX.Element {
         <Route path="/user">
           <ProfilePage />
         </Route>
+        <Route path="/"></Route>
       </Switch>
     </BrowserRouter>
   );
