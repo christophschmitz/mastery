@@ -14,14 +14,14 @@ export default function AddPage(): JSX.Element {
           src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
           className={styles.image}
         />
-        <Typography size={'l'}>{'John Doe'}</Typography>
+        <Typography size={'l'}>John Doe</Typography>
         <p>
           Hi, my name is John and I am a creative person based in Santa Monica
         </p>
       </div>
       <main className={styles.main}>
         <div className={styles.heading}>
-          <Typography size="m">{'My Skills'}</Typography>
+          <Typography size="m">My Skills</Typography>
         </div>
         <div className={styles.cardWrapper}>
           {skills.map((skill) => (
