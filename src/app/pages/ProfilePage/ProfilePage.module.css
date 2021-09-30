@@ -1,0 +1,47 @@
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-auto-flow: row;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  position: absolute;
+  margin-top: 3rem;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.heading {
+  padding-left: 1rem;
+}
+
+.image {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  margin-bottom: 1.6rem;
+}
+
+.main {
+  box-shadow: 0 -0.375rem 1.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.75rem 0.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 7rem;
+  padding: 15rem 1rem 1rem 1rem;
+  background-color: var(--bg-primary);
+  overflow: scroll;
+}
+
+.cardWrapper {
+  display: grid;
+  gap: 1.5rem;
+  overflow-x: scroll;
+  padding: 1rem;
+}
