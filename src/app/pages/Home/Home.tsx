@@ -6,7 +6,7 @@ import Typography from '../../components/Typography/Typography';
 import Navigation from '../../components/Navigation/Navigation';
 import ExplorationCardGroup from '../../components/ExplorationCardGroup/ExplorationCardGroup';
 import useLocalStorageSkills from '../../hooks/useLocalStorageSkills';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import type { Skill } from '../../../types';
 import ProgressTrack from '../../components/ProgressTrack/ProgressTrack';
 import Rangeslider from '../../components/Slider/Slider';
@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
   const [minutes, setMinutes] = useState('0');
   const [value, setValue] = useState(0);
   const [showDetailModal, setShowDetailModal] = useState(false);
-
+  const history = useHistory();
   const [details, setDetails] = useState<Skill>({
     id: '',
     title: '',
@@ -28,12 +28,14 @@ export default function Home(): JSX.Element {
     imageSrc: '',
     isDone: false,
   });
+  const { skills } = useLocalStorageSkills();
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     const hrs = parseInt(hours);
     const mins = parseInt(minutes);
     const addedHours = value + hrs + mins * 0.015;
+    localStorage.setItem('progress', JSON.stringify(addedHours));
     setValue(addedHours);
   }
 
@@ -56,26 +58,27 @@ export default function Home(): JSX.Element {
   const ranktrackparsed = JSON.parse(ranktrack);
   localStorage.getItem('ranking');
 
-  const onAddClick = () => console.log('added');
+  function onAddClick() {
+    history.push('/add');
+  }
 
   const explorationList = [
     {
-      title: 'Crafting',
-      description: 'Exampledescription',
+      title: 'Sport',
+      description: 'Stay fit, stay healthy',
+      onClick: onAddClick,
+    },
+    {
+      title: 'Painting',
+      description: 'Express yourself',
       onClick: onAddClick,
     },
     {
       title: 'Knitting',
-      description: 'Exampledescription',
-      onClick: onAddClick,
-    },
-    {
-      title: 'Art',
-      description: 'Exampledescription',
+      description: 'Preparation for cold days',
       onClick: onAddClick,
     },
   ];
-  const { skills } = useLocalStorageSkills();
 
   return (
     <div className={styles.container}>
