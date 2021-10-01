@@ -9,8 +9,11 @@ import { CATEGORIES } from '../../components/lib/categoryMap';
 import { useHistory } from 'react-router';
 import useLocalStorageSkills from '../../hooks/useLocalStorageSkills';
 import type { Skill } from '../../../types';
+import Typography from '../../components/Typography/Typography';
+import Actionbutton from '../../components/Actionbutton/Actionbutton';
 
 export default function AddPage(): JSX.Element {
+  const [showModal, setShowModal] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     'crafting'
   );
@@ -69,13 +72,31 @@ export default function AddPage(): JSX.Element {
                 imageSrc={skill.imageSrc}
                 title={skill.title}
                 description={skill.description}
-                onClick={() => addNewSkill(skill)}
+                onClick={() => {
+                  addNewSkill(skill), setShowModal(true);
+                }}
               />
             );
           })}
       </main>
 
       <Navigation activeLink={'add'} />
+      {showModal && (
+        <section className={styles.modalcontainer}>
+          <div className={styles.modal}>
+            <Typography size={'l'}>
+              Succesfully <br /> Added
+            </Typography>
+            <Actionbutton
+              type={'button'}
+              style={'secondary'}
+              onClick={() => setShowModal(false)}
+            >
+              Close window
+            </Actionbutton>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
