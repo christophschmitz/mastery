@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 import Typography from '../Typography/Typography';
 import ChevronRight from '../assets/ChevronRight';
@@ -11,7 +10,7 @@ export type CardProps = {
   title: string;
   description?: string;
   onClick?: () => void;
-  id: string | undefined;
+  id: string | number | undefined;
   progress: string | number;
 };
 
@@ -41,9 +40,7 @@ const Card = ({
 
         {type === 'default' ? (
           <div className={styles.chevron}>
-            <Link to={`/detail/${title}`}>
-              <ChevronRight className={styles.chevronLink} />
-            </Link>
+            <ChevronRight onClick={onClick} className={styles.chevronLink} />
           </div>
         ) : (
           <button onClick={onClick} className={styles.addButton}>

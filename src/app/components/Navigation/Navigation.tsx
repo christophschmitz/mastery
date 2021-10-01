@@ -7,6 +7,7 @@ import styles from './Navigation.module.css';
 
 export type Navigationprops = {
   activeLink: 'home' | 'add' | 'user';
+  onClick?: () => void;
 };
 
 function Navigation({ activeLink }: Navigationprops): JSX.Element {

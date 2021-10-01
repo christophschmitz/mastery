@@ -13,9 +13,9 @@ const ChevronLeft = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
       <path
         d="M8 15L1 8L8 1"
         stroke="inherit"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

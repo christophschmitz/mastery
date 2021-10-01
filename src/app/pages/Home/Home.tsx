@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Home.module.css';
 import Header from '../../components/Header/Header';
 import Card from '../../components/Card/Card';
@@ -6,12 +6,55 @@ import Typography from '../../components/Typography/Typography';
 import Navigation from '../../components/Navigation/Navigation';
 import ExplorationCardGroup from '../../components/ExplorationCardGroup/ExplorationCardGroup';
 import useLocalStorageSkills from '../../hooks/useLocalStorageSkills';
-import { Link, useParams } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import type { Skill } from '../../../types';
+import ProgressTrack from '../../components/ProgressTrack/ProgressTrack';
+import Rangeslider from '../../components/Slider/Slider';
+import ActionButton from '../../components/Actionbutton/Actionbutton';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 export default function Home(): JSX.Element {
-  const history = useHistory();
-  const params = useParams<{ title: string }>();
+  const [hours, setHours] = useState('0');
+  const [minutes, setMinutes] = useState('0');
+  const [value, setValue] = useState(0);
+  const [showDetailModal, setShowDetailModal] = useState(false);
+
+  const [details, setDetails] = useState<Skill>({
+    id: '',
+    title: '',
+    category: '',
+    description: '',
+    progress: 500,
+    imageSrc: '',
+    isDone: false,
+  });
+
+  function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    const hrs = parseInt(hours);
+    const mins = parseInt(minutes);
+    const addedHours = value + hrs + mins * 0.015;
+    setValue(addedHours);
+  }
+
+  const ranking =
+    value === 0
+      ? '0'
+      : value < 99
+      ? '1'
+      : value > 100 && value < 199
+      ? '2'
+      : value > 200 && value < 299
+      ? '3'
+      : value > 300 && value < 399
+      ? '4'
+      : '5';
+
+  const ranktrack = JSON.stringify(ranking);
+  localStorage.setItem('ranking', ranking);
+
+  const ranktrackparsed = JSON.parse(ranktrack);
+  localStorage.getItem('ranking');
 
   const onAddClick = () => console.log('added');
 
@@ -64,7 +107,7 @@ export default function Home(): JSX.Element {
               title={skill.title}
               description={skill.description}
               onClick={() => {
-                history.push(`/detail/${params.title}`);
+                setShowDetailModal(true), setDetails(skill);
               }}
             />
           ))}
@@ -79,6 +122,61 @@ export default function Home(): JSX.Element {
         />
       </main>
       <Navigation activeLink={'home'} />
+
+      {showDetailModal && (
+        <section className={styles.modal} id="modal">
+          <div className={styles.modalContainer}>
+            <Header
+              title={details.title}
+              type="detail"
+              imageSrc={details.imageSrc}
+              onClick={() => {
+                setShowDetailModal(false);
+              }}
+            />
+            <main className={styles.main}>
+              <ProgressTrack
+                value={(details.progress - value).toFixed(1)}
+                rank={ranktrackparsed}
+              />
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <Rangeslider
+                  size="hours"
+                  value={hours}
+                  min={'0'}
+                  max={'24'}
+                  onChange={(event) => setHours(event.target.value)}
+                />
+                <Rangeslider
+                  size="minutes"
+                  value={minutes}
+                  min={'0'}
+                  max={'59'}
+                  onChange={(event) => setMinutes(event.target.value)}
+                />
+                <ActionButton
+                  children={'Submit'}
+                  type={'submit'}
+                  style="primary"
+                ></ActionButton>
+              </form>
+              <ProgressBar
+                percentageVal={value}
+                textVal={value.toFixed(1)}
+                minValue={1}
+                maxValue={500}
+                children={details.description}
+              />
+            </main>
+            <Navigation
+              activeLink={'home'}
+              onClick={() => {
+                setShowDetailModal(false);
+              }}
+            />
+          </div>
+        </section>
+      )}
     </div>
   );
 }
