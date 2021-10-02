@@ -3,6 +3,7 @@ import styles from './Card.module.css';
 import Typography from '../Typography/Typography';
 import ChevronRight from '../assets/ChevronRight';
 import PlusIcon from '../assets/PlusIcon';
+import { Link } from 'react-router-dom';
 
 export type CardProps = {
   type: 'default' | 'add';
@@ -40,7 +41,9 @@ const Card = ({
 
         {type === 'default' ? (
           <div className={styles.chevron}>
-            <ChevronRight onClick={onClick} className={styles.chevronLink} />
+            <Link to={`/detail/${title}`}>
+              <ChevronRight className={styles.chevronLink} />
+            </Link>
           </div>
         ) : (
           <button onClick={onClick} className={styles.addButton}>
