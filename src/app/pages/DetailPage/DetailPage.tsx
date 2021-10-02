@@ -6,33 +6,27 @@ import Rangeslider from '../../components/Slider/Slider';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import ActionButton from '../../components/Actionbutton/Actionbutton';
 import Navigation from '../../components/Navigation/Navigation';
-import useSkill from '../../hooks/useSkill';
 import { useHistory } from 'react-router';
+import useLocalStorageSkills from '../../hooks/useLocalStorageSkills';
+import { useParams } from 'react-router-dom';
 
 export default function DetailPage(): JSX.Element {
-  const singleSkill = {
-    _id: '6149b8fb9da9c4cbfa091a9a',
-    title: 'Coding',
-    description: 'Build products and learn',
-    imageSrc:
-      'https://images.unsplash.com/photo-1577375870519-0a9fdb747f51?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1100&q=80',
-    category: 'it',
-    progress: 500,
-    isDone: false,
-  };
-
-  const { skill } = useSkill(singleSkill.title);
   const [hours, setHours] = useState('0');
   const [minutes, setMinutes] = useState('0');
   const [value, setValue] = useState(0);
   const history = useHistory();
+  const { skills } = useLocalStorageSkills();
+
+  const { title }: { title: string } = useParams();
+  const filteredSkills = skills.filter(
+    (skills) => skills.title === String(title)
+  );
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     const hrs = parseInt(hours);
     const mins = parseInt(minutes);
     const addedHours = value + hrs + mins * 0.015;
-    localStorage.setItem('progress', JSON.stringify(skill?.progress));
     setValue(addedHours);
   }
 
@@ -57,19 +51,26 @@ export default function DetailPage(): JSX.Element {
 
   return (
     <div className={styles.container}>
-      <Header
-        title={singleSkill.title}
-        type="detail"
-        imageSrc={singleSkill.imageSrc}
-        onClick={() => {
-          history.push('/');
-        }}
-      />
-      <main className={styles.main}>
-        <ProgressTrack
-          value={(singleSkill.progress - value).toFixed(1)}
-          rank={ranktrackparsed}
+      {filteredSkills.map((skills) => (
+        <Header
+          {...skills}
+          key={skills.title}
+          title={skills.title}
+          type="detail"
+          imageSrc={skills.imageSrc}
+          onClick={() => {
+            history.push('/');
+          }}
         />
+      ))}
+
+      <main className={styles.main}>
+        {filteredSkills.map((skills) => (
+          <ProgressTrack
+            value={(skills.progress - value).toFixed(1)}
+            rank={ranktrackparsed}
+          />
+        ))}
         <form className={styles.form} onSubmit={handleSubmit}>
           <Rangeslider
             size="hours"
@@ -91,13 +92,15 @@ export default function DetailPage(): JSX.Element {
             style="primary"
           ></ActionButton>
         </form>
-        <ProgressBar
-          percentageVal={value}
-          textVal={value.toFixed(1)}
-          minValue={1}
-          maxValue={500}
-          children={singleSkill.description}
-        />
+        {filteredSkills.map((skills) => (
+          <ProgressBar
+            percentageVal={value}
+            textVal={value.toFixed(1)}
+            minValue={1}
+            maxValue={500}
+            children={skills.description}
+          />
+        ))}
       </main>
       <Navigation activeLink={'add'} />
     </div>

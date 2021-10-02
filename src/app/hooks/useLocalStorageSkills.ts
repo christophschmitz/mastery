@@ -5,6 +5,7 @@ export default function useLocalStorageSkills(): {
   skills: Skill[];
   addSkill: (skills: Skill) => void;
   removeSkill: (newSkill: Skill) => void;
+  editSkill: (oldSkill: Skill, newSkill: Skill) => void;
 } {
   const [skills, setSkills] = useLocalStorage<Skill[]>('skills', []);
 
@@ -16,5 +17,12 @@ export default function useLocalStorageSkills(): {
     setSkills(skills.filter((skill) => skill !== newSkill));
   }
 
-  return { skills, addSkill, removeSkill };
+  function editSkill(deleteSkill: Skill, newSkill: Skill) {
+    setSkills([
+      ...skills.filter((skill) => skill.title !== deleteSkill.title),
+      newSkill,
+    ]);
+  }
+
+  return { skills, addSkill, removeSkill, editSkill };
 }
