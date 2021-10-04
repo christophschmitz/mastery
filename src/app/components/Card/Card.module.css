@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr 0.2fr;
   color: var(--color-primary);
+  gap: 1rem;
 }
 .imgage {
   background-size: cover;
@@ -15,7 +16,6 @@
 .content {
   display: grid;
   align-content: center;
-  padding-left: 1rem;
 }
 
 .chevron {
