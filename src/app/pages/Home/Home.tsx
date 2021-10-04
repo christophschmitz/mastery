@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Home.module.css';
 import Header from '../../components/Header/Header';
 import Card from '../../components/Card/Card';
@@ -7,56 +7,11 @@ import Navigation from '../../components/Navigation/Navigation';
 import ExplorationCardGroup from '../../components/ExplorationCardGroup/ExplorationCardGroup';
 import useLocalStorageSkills from '../../hooks/useLocalStorageSkills';
 import { Link, useHistory } from 'react-router-dom';
-import type { Skill } from '../../../types';
-import ProgressTrack from '../../components/ProgressTrack/ProgressTrack';
-import Rangeslider from '../../components/Slider/Slider';
-import ActionButton from '../../components/Actionbutton/Actionbutton';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 export default function Home(): JSX.Element {
-  const [hours, setHours] = useState('0');
-  const [minutes, setMinutes] = useState('0');
-  const [value, setValue] = useState(0);
-  const [showDetailModal, setShowDetailModal] = useState(false);
   const history = useHistory();
-  const [details, setDetails] = useState<Skill>({
-    id: '',
-    title: '',
-    category: '',
-    description: '',
-    progress: 500,
-    imageSrc: '',
-    isDone: false,
-  });
+
   const { skills } = useLocalStorageSkills();
-
-  function handleSubmit(event: React.FormEvent) {
-    event.preventDefault();
-    const hrs = parseInt(hours);
-    const mins = parseInt(minutes);
-    const addedHours = value + hrs + mins * 0.015;
-    localStorage.setItem('progress', JSON.stringify(addedHours));
-    setValue(addedHours);
-  }
-
-  const ranking =
-    value === 0
-      ? '0'
-      : value < 99
-      ? '1'
-      : value > 100 && value < 199
-      ? '2'
-      : value > 200 && value < 299
-      ? '3'
-      : value > 300 && value < 399
-      ? '4'
-      : '5';
-
-  const ranktrack = JSON.stringify(ranking);
-  localStorage.setItem('ranking', ranking);
-
-  const ranktrackparsed = JSON.parse(ranktrack);
-  localStorage.getItem('ranking');
 
   function onAddClick() {
     history.push('/add');
@@ -109,9 +64,6 @@ export default function Home(): JSX.Element {
               imageSrc={skill.imageSrc}
               title={skill.title}
               description={skill.description}
-              onClick={() => {
-                setShowDetailModal(true), setDetails(skill);
-              }}
             />
           ))}
         </div>
@@ -125,61 +77,6 @@ export default function Home(): JSX.Element {
         />
       </main>
       <Navigation activeLink={'home'} />
-
-      {showDetailModal && (
-        <section className={styles.modal} id="modal">
-          <div className={styles.modalContainer}>
-            <Header
-              title={details.title}
-              type="detail"
-              imageSrc={details.imageSrc}
-              onClick={() => {
-                setShowDetailModal(false);
-              }}
-            />
-            <main className={styles.main}>
-              <ProgressTrack
-                value={(details.progress - value).toFixed(1)}
-                rank={ranktrackparsed}
-              />
-              <form className={styles.form} onSubmit={handleSubmit}>
-                <Rangeslider
-                  size="hours"
-                  value={hours}
-                  min={'0'}
-                  max={'24'}
-                  onChange={(event) => setHours(event.target.value)}
-                />
-                <Rangeslider
-                  size="minutes"
-                  value={minutes}
-                  min={'0'}
-                  max={'59'}
-                  onChange={(event) => setMinutes(event.target.value)}
-                />
-                <ActionButton
-                  children={'Submit'}
-                  type={'submit'}
-                  style="primary"
-                ></ActionButton>
-              </form>
-              <ProgressBar
-                percentageVal={value}
-                textVal={value.toFixed(1)}
-                minValue={1}
-                maxValue={500}
-                children={details.description}
-              />
-            </main>
-            <Navigation
-              activeLink={'home'}
-              onClick={() => {
-                setShowDetailModal(false);
-              }}
-            />
-          </div>
-        </section>
-      )}
     </div>
   );
 }
