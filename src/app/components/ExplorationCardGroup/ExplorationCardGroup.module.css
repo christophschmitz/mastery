@@ -1,9 +1,9 @@
 .container {
   display: grid;
   grid-template-columns: 80% 80% 80%;
-  gap: 0.5rem;
+  gap: 1rem;
   overflow-y: scroll;
-  padding: 0 2rem 2rem 1rem;
+  padding: 0 2rem 1rem 2rem;
 }
 
 ::-webkit-scrollbar {

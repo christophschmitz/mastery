@@ -10,4 +10,6 @@ export type Skill = {
   progress: number;
   imageSrc: string;
   isDone: boolean;
+  rank: number;
+  value: number;
 };

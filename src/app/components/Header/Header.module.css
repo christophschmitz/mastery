@@ -11,7 +11,7 @@
 }
 
 .image {
-  width: 3.75rem;
+  width: 3rem;
   border-radius: 50%;
 }
 
@@ -52,7 +52,7 @@
     hsla(249.23, 14.29%, 17.84%, 0.24) 91.9%,
     hsla(249.23, 14.29%, 17.84%, 0.23) 100%
   );
-  height: 16rem;
+  height: 10rem;
 }
 
 .title {
@@ -62,7 +62,7 @@
   justify-content: space-between;
   align-content: flex-start;
   align-items: center;
-  padding: 3.35rem 2rem 1.5rem 2rem;
+  padding: 2.15rem 2rem 1.5rem 2rem;
 }
 
 .imageWrapper {

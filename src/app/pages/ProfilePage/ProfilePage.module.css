@@ -11,9 +11,9 @@
   align-items: center;
   z-index: 2;
   position: absolute;
-  margin-top: 3rem;
+  margin-top: 2rem;
   text-align: center;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 .heading {
@@ -34,7 +34,7 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 7rem;
-  padding: 15rem 1rem 1rem 1rem;
+  padding: 12rem 1rem 1rem 1rem;
   background-color: var(--bg-primary);
   overflow: scroll;
 }
@@ -43,5 +43,5 @@
   display: grid;
   gap: 1.5rem;
   overflow-x: scroll;
-  padding: 1rem;
+  padding: 0 1rem;
 }

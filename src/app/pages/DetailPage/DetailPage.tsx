@@ -14,6 +14,9 @@ export default function DetailPage(): JSX.Element {
   const [hours, setHours] = useState('0');
   const [minutes, setMinutes] = useState('0');
   const [value, setValue] = useState(0);
+  const [rank, setRank] = useState(0);
+  const [circular, setCircular] = useState(0);
+
   const history = useHistory();
   const { skills } = useLocalStorageSkills();
 
@@ -28,8 +31,10 @@ export default function DetailPage(): JSX.Element {
     const mins = parseInt(minutes);
     const addedHours = value + hrs + mins * 0.015;
     setValue(addedHours);
+    setRank(parseInt(ranking));
+    setCircular(value);
   }
-
+  console.log(circular);
   const ranking =
     value === 0
       ? '0'
@@ -43,12 +48,26 @@ export default function DetailPage(): JSX.Element {
       ? '4'
       : '5';
 
-  const ranktrack = JSON.stringify(ranking);
-  localStorage.setItem('ranking', ranking);
+  const update = skills.map((skills) => {
+    skills.title === skills.title;
+    const updateProgress = skills.progress - value;
+    const rankNumber = parseInt(ranking);
+    const updateRank = skills.rank + rankNumber;
+    console.log(updateRank);
+    const updateValue = skills.value + value;
 
-  const ranktrackparsed = JSON.parse(ranktrack);
-  localStorage.getItem('ranking');
-
+    return {
+      title: skills.title,
+      rank: updateRank,
+      description: skills.description,
+      progress: updateProgress.toFixed(1),
+      imageSrc: skills.imageSrc,
+      category: skills.category,
+      isDone: false,
+      value: updateValue,
+    };
+  });
+  localStorage.setItem('skills', JSON.stringify(update));
   return (
     <div className={styles.container}>
       {filteredSkills.map((skills) => (
@@ -68,7 +87,7 @@ export default function DetailPage(): JSX.Element {
         {filteredSkills.map((skills) => (
           <ProgressTrack
             value={(skills.progress - value).toFixed(1)}
-            rank={ranktrackparsed}
+            rank={skills.rank + rank}
           />
         ))}
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -94,7 +113,7 @@ export default function DetailPage(): JSX.Element {
         </form>
         {filteredSkills.map((skills) => (
           <ProgressBar
-            percentageVal={value}
+            percentageVal={skills.value + value}
             textVal={value.toFixed(1)}
             minValue={1}
             maxValue={500}
