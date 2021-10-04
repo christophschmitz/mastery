@@ -35,9 +35,28 @@ export default function AddPage(): JSX.Element {
   });
 
   const allCategorys = skills?.map((skill) => {
-    const { title, imageSrc, description, category, id, progress, isDone } =
-      skill;
-    return { title, imageSrc, description, category, id, progress, isDone };
+    const {
+      title,
+      imageSrc,
+      description,
+      category,
+      id,
+      progress,
+      isDone,
+      rank,
+      value,
+    } = skill;
+    return {
+      title,
+      imageSrc,
+      description,
+      category,
+      id,
+      progress,
+      isDone,
+      rank,
+      value,
+    };
   });
   const filteredSkills = allCategorys?.filter(
     (skills) => skills.category === selectedCategory
@@ -89,10 +108,10 @@ export default function AddPage(): JSX.Element {
             </Typography>
             <Actionbutton
               type={'button'}
-              style={'secondary'}
+              style={'primary'}
               onClick={() => setShowModal(false)}
             >
-              Close window
+              Close Window
             </Actionbutton>
           </div>
         </section>
