@@ -38,7 +38,9 @@ export default function AddPage(): JSX.Element {
           ))}
         </div>
       </main>
-      <Navigation activeLink={'user'} />
+      <div>
+        <Navigation activeLink={'user'} />
+      </div>
     </div>
   );
 }
